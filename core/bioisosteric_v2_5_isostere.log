@@ -1,0 +1,176 @@
+2026-04-17 19:42:04,430 - INFO - ============================================================
+2026-04-17 19:42:04,430 - INFO - BioIsosteric V2.5 Fragment Diffusion Model
+2026-04-17 19:42:04,430 - INFO - [V5改进] 两阶段课程学习：Phase 1 自重建 + Phase 2 等排体
+2026-04-17 19:42:04,430 - INFO - 方案A：只扩散片段，骨架作为条件
+2026-04-17 19:42:04,430 - INFO - ============================================================
+2026-04-17 19:42:04,430 - INFO - Config: Config(data_dir='E:/zuhui/chembl_data_sample', test_mode=True, test_mode_limit=5000, max_atoms_per_mol=100, min_fragment_atoms=2, max_fragment_atoms=15, min_scaffold_atoms=5, max_scaffold_atoms=50, use_accfg_decomposition=False, use_accfg_fg_detection=False, stage1_epochs=20, stage1_batch_size=1024, stage2_epochs=20, stage2_batch_size=1024, stage2_fp_threshold=0.4, stage2_sample_size=1000, stage2_max_pairs=1000000, stage3_max_pairs=1000000, stage3_epochs=50, stage3_batch_size=128, stage3_timesteps=100, stage3_lr=0.0002, use_attention=True, attention_heads=4, attention_r_feat_dim=20, use_discrete_diffusion=True, num_bond_types=4, prior_mode='data_stats', position_prior_mode='learned', position_prior_type='isotropic_gaussian', position_prior_sigma=1.0, bond_distance_weight=5.0, connectivity_weight=1.0, connectivity_threshold=0.1, use_cfg_inference=True, cfg_scale=2.0, use_atom_pair_bond_lengths=True, self_reconstruction_mode=True, self_reconstruction_epochs=10, curriculum_phase=1, isostere_epochs=40, isostere_scaffold_threshold=0.5, isostere_fragment_threshold=0.4, isostere_atom_count_diff=3, x0_loss_weight_phase1=0.05, x0_loss_weight_phase2=0.01, bond_distance_weight_phase1=5.0, bond_distance_weight_phase2=2.0, use_x0_prediction_loss=True, x0_loss_weight=0.05)
+2026-04-17 19:42:04,430 - INFO - Loading and decomposing molecules...
+2026-04-17 19:42:10,097 - INFO - Total molecules: 5000, Valid decompositions: 3506
+2026-04-17 19:42:10,097 - INFO - Functional group distribution: {'alcohol': 2274, 'furan': 2, 'ether': 212, 'ketone': 780, 'ester': 84}
+2026-04-17 19:42:10,097 - INFO - Dataset size: 3506 decomposed molecules
+2026-04-17 19:42:10,107 - INFO - [Prior] 原子类型Prior模式: data_stats
+2026-04-17 19:42:10,107 - INFO - [Prior] 原子类型Prior分布: [0.0190295  0.00095147 0.42816365 0.14272122 0.19029496 0.04757374
+ 0.0190295  0.04757374 0.03805899 0.0190295  0.00951475 0.03805899]
+2026-04-17 19:42:10,107 - INFO - [Prior] 键类型Prior模式: data_stats
+2026-04-17 19:42:10,107 - INFO - [Prior] 键类型Prior分布: [0.65 0.15 0.02 0.18]
+2026-04-17 19:42:10,108 - INFO - [Prior] 位置坐标Prior模式: learned, 类型: isotropic_gaussian
+2026-04-17 19:42:10,175 - INFO - Model parameters: 1998901
+2026-04-17 19:42:10,175 - INFO - Stage 1: 3D Scaffold encoder pretraining, epochs=20
+2026-04-17 19:42:11,839 - INFO - Stage 1 Epoch 1 avg_loss=4.788534
+2026-04-17 19:42:13,194 - INFO - Stage 1 Epoch 2 avg_loss=2.711344
+2026-04-17 19:42:14,550 - INFO - Stage 1 Epoch 3 avg_loss=2.225586
+2026-04-17 19:42:15,910 - INFO - Stage 1 Epoch 4 avg_loss=2.276645
+2026-04-17 19:42:17,291 - INFO - Stage 1 Epoch 5 avg_loss=2.221203
+2026-04-17 19:42:18,662 - INFO - Stage 1 Epoch 6 avg_loss=2.205605
+2026-04-17 19:42:20,031 - INFO - Stage 1 Epoch 7 avg_loss=2.203050
+2026-04-17 19:42:21,402 - INFO - Stage 1 Epoch 8 avg_loss=2.198040
+2026-04-17 19:42:22,765 - INFO - Stage 1 Epoch 9 avg_loss=2.196704
+2026-04-17 19:42:24,123 - INFO - Stage 1 Epoch 10 avg_loss=2.194481
+2026-04-17 19:42:25,493 - INFO - Stage 1 Epoch 11 avg_loss=2.194123
+2026-04-17 19:42:26,873 - INFO - Stage 1 Epoch 12 avg_loss=2.192825
+2026-04-17 19:42:28,232 - INFO - Stage 1 Epoch 13 avg_loss=2.192327
+2026-04-17 19:42:29,586 - INFO - Stage 1 Epoch 14 avg_loss=2.192395
+2026-04-17 19:42:30,945 - INFO - Stage 1 Epoch 15 avg_loss=2.192162
+2026-04-17 19:42:32,442 - INFO - Stage 1 Epoch 16 avg_loss=2.191806
+2026-04-17 19:42:33,805 - INFO - Stage 1 Epoch 17 avg_loss=2.190689
+2026-04-17 19:42:35,168 - INFO - Stage 1 Epoch 18 avg_loss=2.190950
+2026-04-17 19:42:36,529 - INFO - Stage 1 Epoch 19 avg_loss=2.190094
+2026-04-17 19:42:37,897 - INFO - Stage 1 Epoch 20 avg_loss=2.190065
+2026-04-17 19:42:37,897 - INFO - Stage 2: Contrastive learning + pair mining, epochs=20
+2026-04-17 19:42:37,898 - INFO - Mining fragment pairs...
+2026-04-17 19:42:42,180 - INFO - Mined 5174 fragment pairs from 1000000 comparisons
+2026-04-17 19:42:42,180 - INFO - Generated 5174 fragment pairs
+2026-04-17 19:42:59,095 - INFO - Stage 2 Epoch 1 avg_loss=0.906027
+2026-04-17 19:43:15,935 - INFO - Stage 2 Epoch 2 avg_loss=0.793201
+2026-04-17 19:43:32,795 - INFO - Stage 2 Epoch 3 avg_loss=0.788507
+2026-04-17 19:43:49,628 - INFO - Stage 2 Epoch 4 avg_loss=0.784699
+2026-04-17 19:44:06,482 - INFO - Stage 2 Epoch 5 avg_loss=0.796087
+2026-04-17 19:44:23,250 - INFO - Stage 2 Epoch 6 avg_loss=0.766649
+2026-04-17 19:44:40,085 - INFO - Stage 2 Epoch 7 avg_loss=0.765323
+2026-04-17 19:44:56,893 - INFO - Stage 2 Epoch 8 avg_loss=0.768489
+2026-04-17 19:45:13,767 - INFO - Stage 2 Epoch 9 avg_loss=0.765335
+2026-04-17 19:45:30,621 - INFO - Stage 2 Epoch 10 avg_loss=0.775366
+2026-04-17 19:45:47,478 - INFO - Stage 2 Epoch 11 avg_loss=0.769649
+2026-04-17 19:46:04,234 - INFO - Stage 2 Epoch 12 avg_loss=0.755000
+2026-04-17 19:46:20,989 - INFO - Stage 2 Epoch 13 avg_loss=0.757128
+2026-04-17 19:46:37,826 - INFO - Stage 2 Epoch 14 avg_loss=0.755356
+2026-04-17 19:46:54,597 - INFO - Stage 2 Epoch 15 avg_loss=0.761871
+2026-04-17 19:47:11,608 - INFO - Stage 2 Epoch 16 avg_loss=0.773908
+2026-04-17 19:47:31,668 - INFO - Stage 2 Epoch 17 avg_loss=0.758138
+2026-04-17 19:47:49,789 - INFO - Stage 2 Epoch 18 avg_loss=0.761671
+2026-04-17 19:48:07,880 - INFO - Stage 2 Epoch 19 avg_loss=0.747771
+2026-04-17 19:48:25,973 - INFO - Stage 2 Epoch 20 avg_loss=0.747420
+2026-04-17 19:48:25,974 - INFO - ============================================================
+2026-04-17 19:48:25,974 - INFO - Stage 3 Phase 1: Self-reconstruction
+2026-04-17 19:48:25,974 - INFO - Goal: Learn to perfectly reconstruct original fragments
+2026-04-17 19:48:25,974 - INFO - ============================================================
+2026-04-17 19:48:25,974 - INFO - Stage 3: Fragment diffusion training (batch), epochs=10, phase=1
+2026-04-17 19:48:25,974 - INFO - [V5] Phase 1: Self-reconstruction mode
+2026-04-17 19:48:25,975 - INFO -   Using 3506 self-reconstruction pairs (scaffold_i -> fragment_i)
+2026-04-17 19:48:25,975 - INFO -   Training for 10 epochs
+2026-04-17 19:48:25,975 - INFO - Stage 3 LR adjusted to: 0.0002
+2026-04-17 19:48:25,976 - INFO - Using WeightedRandomSampler for rare atom fragment oversampling
+2026-04-17 19:48:28,844 - INFO - Stage 3 Epoch 1 avg_loss=19.0979 (pos=1.150, x0_pos=0.548, x0_atom=1.159, atom=13.433, bond=0.085, bd=0.655, conn=0.100, val=0.863)
+2026-04-17 19:48:31,664 - INFO - Stage 3 Epoch 2 avg_loss=6.7818 (pos=1.060, x0_pos=0.525, x0_atom=0.689, atom=1.558, bond=0.113, bd=0.677, conn=0.100, val=0.115)
+2026-04-17 19:48:34,417 - INFO - Stage 3 Epoch 3 avg_loss=5.1045 (pos=0.981, x0_pos=0.481, x0_atom=0.956, atom=0.461, bond=0.057, bd=0.663, conn=0.100, val=0.070)
+2026-04-17 19:48:37,120 - INFO - Stage 3 Epoch 4 avg_loss=4.7325 (pos=0.968, x0_pos=0.490, x0_atom=0.992, atom=0.324, bond=0.038, bd=0.640, conn=0.100, val=0.041)
+2026-04-17 19:48:39,841 - INFO - Stage 3 Epoch 5 avg_loss=4.4606 (pos=0.946, x0_pos=0.460, x0_atom=1.004, atom=0.280, bond=0.028, bd=0.603, conn=0.100, val=0.034)
+2026-04-17 19:48:42,518 - INFO - Stage 3 Epoch 6 avg_loss=4.4068 (pos=0.941, x0_pos=0.456, x0_atom=0.991, atom=0.225, bond=0.033, bd=0.607, conn=0.100, val=0.032)
+2026-04-17 19:48:45,228 - INFO - Stage 3 Epoch 7 avg_loss=4.2994 (pos=0.922, x0_pos=0.463, x0_atom=0.967, atom=0.203, bond=0.029, bd=0.595, conn=0.100, val=0.030)
+2026-04-17 19:48:47,895 - INFO - Stage 3 Epoch 8 avg_loss=4.2989 (pos=0.917, x0_pos=0.463, x0_atom=0.945, atom=0.191, bond=0.031, bd=0.598, conn=0.100, val=0.028)
+2026-04-17 19:48:50,553 - INFO - Stage 3 Epoch 9 avg_loss=4.0951 (pos=0.894, x0_pos=0.447, x0_atom=0.942, atom=0.177, bond=0.034, bd=0.565, conn=0.100, val=0.029)
+2026-04-17 19:48:53,258 - INFO - Stage 3 Epoch 10 avg_loss=4.1251 (pos=0.888, x0_pos=0.462, x0_atom=0.931, atom=0.161, bond=0.034, bd=0.576, conn=0.100, val=0.029)
+2026-04-17 19:48:53,277 - INFO - Phase 1 weights saved: bioisosteric_model_v2_5_phase1.pth
+2026-04-17 19:48:53,277 - INFO - ============================================================
+2026-04-17 19:48:53,277 - INFO - Stage 3 Phase 2: Isostere Generation
+2026-04-17 19:48:53,277 - INFO - Goal: Learn to generate scaffold-similar + fragment-different replacements
+2026-04-17 19:48:53,277 - INFO - ============================================================
+2026-04-17 19:48:53,277 - INFO - Mining TRUE isostere pairs (scaffold-similar, fragment-different)...
+2026-04-17 20:23:41,644 - INFO - ============================================================
+2026-04-17 20:23:41,644 - INFO - BioIsosteric V2.5 Fragment Diffusion Model
+2026-04-17 20:23:41,644 - INFO - [V5改进] 两阶段课程学习：Phase 1 自重建 + Phase 2 等排体
+2026-04-17 20:23:41,644 - INFO - 方案A：只扩散片段，骨架作为条件
+2026-04-17 20:23:41,644 - INFO - ============================================================
+2026-04-17 20:23:41,644 - INFO - Config: Config(data_dir='E:/zuhui/chembl_data_sample', test_mode=True, test_mode_limit=5000, max_atoms_per_mol=100, min_fragment_atoms=2, max_fragment_atoms=15, min_scaffold_atoms=5, max_scaffold_atoms=50, use_accfg_decomposition=False, use_accfg_fg_detection=False, stage1_epochs=20, stage1_batch_size=1024, stage2_epochs=20, stage2_batch_size=1024, stage2_fp_threshold=0.4, stage2_sample_size=1000, stage2_max_pairs=1000000, stage3_max_pairs=1000000, stage3_epochs=50, stage3_batch_size=128, stage3_timesteps=100, stage3_lr=0.0002, use_attention=True, attention_heads=4, attention_r_feat_dim=20, use_discrete_diffusion=True, num_bond_types=4, prior_mode='data_stats', position_prior_mode='learned', position_prior_type='isotropic_gaussian', position_prior_sigma=1.0, bond_distance_weight=5.0, connectivity_weight=1.0, connectivity_threshold=0.1, use_cfg_inference=True, cfg_scale=2.0, use_atom_pair_bond_lengths=True, self_reconstruction_mode=True, self_reconstruction_epochs=10, curriculum_phase=1, isostere_epochs=40, isostere_scaffold_threshold=0.5, isostere_fragment_threshold=0.4, isostere_atom_count_diff=3, x0_loss_weight_phase1=0.05, x0_loss_weight_phase2=0.01, bond_distance_weight_phase1=5.0, bond_distance_weight_phase2=2.0, use_x0_prediction_loss=True, x0_loss_weight=0.05)
+2026-04-17 20:23:41,644 - INFO - Loading and decomposing molecules...
+2026-04-17 20:23:47,085 - INFO - Total molecules: 5000, Valid decompositions: 3506
+2026-04-17 20:23:47,085 - INFO - Functional group distribution: {'alcohol': 2274, 'furan': 2, 'ether': 212, 'ketone': 780, 'ester': 84}
+2026-04-17 20:23:47,085 - INFO - Dataset size: 3506 decomposed molecules
+2026-04-17 20:23:47,094 - INFO - [Prior] 原子类型Prior模式: data_stats
+2026-04-17 20:23:47,095 - INFO - [Prior] 原子类型Prior分布: [0.0190295  0.00095147 0.42816365 0.14272122 0.19029496 0.04757374
+ 0.0190295  0.04757374 0.03805899 0.0190295  0.00951475 0.03805899]
+2026-04-17 20:23:47,095 - INFO - [Prior] 键类型Prior模式: data_stats
+2026-04-17 20:23:47,095 - INFO - [Prior] 键类型Prior分布: [0.65 0.15 0.02 0.18]
+2026-04-17 20:23:47,095 - INFO - [Prior] 位置坐标Prior模式: learned, 类型: isotropic_gaussian
+2026-04-17 20:23:47,165 - INFO - Model parameters: 1998901
+2026-04-17 20:23:47,165 - INFO - Stage 1: 3D Scaffold encoder pretraining, epochs=20
+2026-04-17 20:23:48,823 - INFO - Stage 1 Epoch 1 avg_loss=4.788534
+2026-04-17 20:23:50,190 - INFO - Stage 1 Epoch 2 avg_loss=2.711344
+2026-04-17 20:23:51,552 - INFO - Stage 1 Epoch 3 avg_loss=2.225586
+2026-04-17 20:23:52,918 - INFO - Stage 1 Epoch 4 avg_loss=2.276644
+2026-04-17 20:23:54,281 - INFO - Stage 1 Epoch 5 avg_loss=2.221203
+2026-04-17 20:23:55,641 - INFO - Stage 1 Epoch 6 avg_loss=2.205605
+2026-04-17 20:23:57,001 - INFO - Stage 1 Epoch 7 avg_loss=2.203050
+2026-04-17 20:23:58,358 - INFO - Stage 1 Epoch 8 avg_loss=2.198040
+2026-04-17 20:23:59,720 - INFO - Stage 1 Epoch 9 avg_loss=2.196704
+2026-04-17 20:24:01,081 - INFO - Stage 1 Epoch 10 avg_loss=2.194481
+2026-04-17 20:24:02,442 - INFO - Stage 1 Epoch 11 avg_loss=2.194123
+2026-04-17 20:24:03,808 - INFO - Stage 1 Epoch 12 avg_loss=2.192826
+2026-04-17 20:24:05,171 - INFO - Stage 1 Epoch 13 avg_loss=2.192327
+2026-04-17 20:24:06,638 - INFO - Stage 1 Epoch 14 avg_loss=2.192395
+2026-04-17 20:24:07,990 - INFO - Stage 1 Epoch 15 avg_loss=2.192162
+2026-04-17 20:24:09,355 - INFO - Stage 1 Epoch 16 avg_loss=2.191806
+2026-04-17 20:24:10,718 - INFO - Stage 1 Epoch 17 avg_loss=2.190688
+2026-04-17 20:24:12,080 - INFO - Stage 1 Epoch 18 avg_loss=2.190949
+2026-04-17 20:24:13,442 - INFO - Stage 1 Epoch 19 avg_loss=2.190092
+2026-04-17 20:24:14,804 - INFO - Stage 1 Epoch 20 avg_loss=2.190074
+2026-04-17 20:24:14,805 - INFO - Stage 2: Contrastive learning + pair mining, epochs=20
+2026-04-17 20:24:14,805 - INFO - Mining fragment pairs...
+2026-04-17 20:24:19,083 - INFO - Mined 5174 fragment pairs from 1000000 comparisons
+2026-04-17 20:24:19,083 - INFO - Generated 5174 fragment pairs
+2026-04-17 20:24:35,928 - INFO - Stage 2 Epoch 1 avg_loss=0.901491
+2026-04-17 20:24:53,619 - INFO - Stage 2 Epoch 2 avg_loss=0.794839
+2026-04-17 20:25:11,752 - INFO - Stage 2 Epoch 3 avg_loss=0.803820
+2026-04-17 20:25:30,517 - INFO - Stage 2 Epoch 4 avg_loss=0.802524
+2026-04-17 20:25:48,831 - INFO - Stage 2 Epoch 5 avg_loss=0.802032
+2026-04-17 20:26:06,983 - INFO - Stage 2 Epoch 6 avg_loss=0.768442
+2026-04-17 20:26:24,908 - INFO - Stage 2 Epoch 7 avg_loss=0.769851
+2026-04-17 20:26:42,751 - INFO - Stage 2 Epoch 8 avg_loss=0.770139
+2026-04-17 20:27:00,690 - INFO - Stage 2 Epoch 9 avg_loss=0.776082
+2026-04-17 20:27:18,917 - INFO - Stage 2 Epoch 10 avg_loss=0.777853
+2026-04-17 20:27:36,934 - INFO - Stage 2 Epoch 11 avg_loss=0.770067
+2026-04-17 20:27:55,414 - INFO - Stage 2 Epoch 12 avg_loss=0.759402
+2026-04-17 20:28:14,140 - INFO - Stage 2 Epoch 13 avg_loss=0.793203
+2026-04-17 20:28:33,005 - INFO - Stage 2 Epoch 14 avg_loss=0.766335
+2026-04-17 20:28:50,933 - INFO - Stage 2 Epoch 15 avg_loss=0.783440
+2026-04-17 20:29:09,047 - INFO - Stage 2 Epoch 16 avg_loss=0.744047
+2026-04-17 20:29:27,413 - INFO - Stage 2 Epoch 17 avg_loss=0.752976
+2026-04-17 20:29:45,348 - INFO - Stage 2 Epoch 18 avg_loss=0.774948
+2026-04-17 20:30:03,458 - INFO - Stage 2 Epoch 19 avg_loss=0.743686
+2026-04-17 20:30:21,457 - INFO - Stage 2 Epoch 20 avg_loss=0.743408
+2026-04-17 20:30:21,457 - INFO - ============================================================
+2026-04-17 20:30:21,458 - INFO - Stage 3 Phase 1: Self-reconstruction
+2026-04-17 20:30:21,458 - INFO - Goal: Learn to perfectly reconstruct original fragments
+2026-04-17 20:30:21,458 - INFO - ============================================================
+2026-04-17 20:30:21,458 - INFO - Stage 3: Fragment diffusion training (batch), epochs=10, phase=1
+2026-04-17 20:30:21,458 - INFO - [V5] Phase 1: Self-reconstruction mode
+2026-04-17 20:30:21,463 - INFO -   Using 3506 self-reconstruction pairs (scaffold_i -> fragment_i)
+2026-04-17 20:30:21,463 - INFO -   Training for 10 epochs
+2026-04-17 20:30:21,463 - INFO - Stage 3 LR adjusted to: 0.0002
+2026-04-17 20:30:21,464 - INFO - Using WeightedRandomSampler for rare atom fragment oversampling
+2026-04-17 20:30:24,290 - INFO - Stage 3 Epoch 1 avg_loss=19.1481 (pos=1.151, x0_pos=0.548, x0_atom=1.156, atom=13.468, bond=0.085, bd=0.655, conn=0.100, val=0.863)
+2026-04-17 20:30:26,976 - INFO - Stage 3 Epoch 2 avg_loss=6.7634 (pos=1.062, x0_pos=0.526, x0_atom=0.687, atom=1.540, bond=0.112, bd=0.677, conn=0.100, val=0.115)
+2026-04-17 20:30:29,613 - INFO - Stage 3 Epoch 3 avg_loss=5.1000 (pos=0.981, x0_pos=0.481, x0_atom=0.957, atom=0.459, bond=0.058, bd=0.663, conn=0.100, val=0.069)
+2026-04-17 20:30:32,286 - INFO - Stage 3 Epoch 4 avg_loss=4.7318 (pos=0.967, x0_pos=0.490, x0_atom=0.990, atom=0.321, bond=0.039, bd=0.641, conn=0.100, val=0.042)
+2026-04-17 20:30:34,896 - INFO - Stage 3 Epoch 5 avg_loss=4.4617 (pos=0.946, x0_pos=0.459, x0_atom=1.005, atom=0.278, bond=0.028, bd=0.604, conn=0.100, val=0.035)
+2026-04-17 20:30:37,504 - INFO - Stage 3 Epoch 6 avg_loss=4.4080 (pos=0.940, x0_pos=0.456, x0_atom=0.988, atom=0.225, bond=0.033, bd=0.607, conn=0.100, val=0.032)
+2026-04-17 20:30:40,122 - INFO - Stage 3 Epoch 7 avg_loss=4.3001 (pos=0.922, x0_pos=0.463, x0_atom=0.968, atom=0.203, bond=0.029, bd=0.595, conn=0.100, val=0.030)
+2026-04-17 20:30:42,726 - INFO - Stage 3 Epoch 8 avg_loss=4.2974 (pos=0.917, x0_pos=0.463, x0_atom=0.946, atom=0.191, bond=0.032, bd=0.598, conn=0.100, val=0.027)
+2026-04-17 20:30:45,327 - INFO - Stage 3 Epoch 9 avg_loss=4.0943 (pos=0.893, x0_pos=0.447, x0_atom=0.948, atom=0.176, bond=0.033, bd=0.565, conn=0.100, val=0.029)
+2026-04-17 20:30:47,937 - INFO - Stage 3 Epoch 10 avg_loss=4.1267 (pos=0.887, x0_pos=0.462, x0_atom=0.931, atom=0.161, bond=0.035, bd=0.576, conn=0.100, val=0.028)
+2026-04-17 20:30:47,959 - INFO - Phase 1 weights saved: bioisosteric_model_v2_5_phase1.pth
+2026-04-17 20:30:47,959 - INFO - ============================================================
+2026-04-17 20:30:47,959 - INFO - Stage 3 Phase 2: Isostere Generation
+2026-04-17 20:30:47,959 - INFO - Goal: Learn to generate scaffold-similar + fragment-different replacements
+2026-04-17 20:30:47,959 - INFO - ============================================================
+2026-04-17 20:30:47,959 - INFO - Mining TRUE isostere pairs (scaffold-similar, fragment-different)...
